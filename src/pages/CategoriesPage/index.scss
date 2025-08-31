@@ -1,0 +1,204 @@
+// Variables
+$primary-bg: #1a1e26;
+$secondary-bg: #222731;
+$card-bg: #2a303c;
+$text-color: #e0e6ed;
+$header-color: #61dafb;
+$border-color: #3b4251;
+$gain-color: #4CAF50;
+$loss-color: #F44336;
+$active-tab-bg: #61dafb;
+$active-tab-text: #1a1e26;
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: $primary-bg;
+  color: $text-color;
+  min-height: 100vh;
+}
+
+.categories-page-container {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: $secondary-bg;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  border: 1px solid $border-color;
+}
+
+.page-title {
+  text-align: center;
+  color: $header-color;
+  margin-bottom: 30px;
+  font-size: 2.2em;
+  border-bottom: 1px solid lighten($border-color, 5%);
+  padding-bottom: 15px;
+}
+
+.tabs-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.tab {
+  background-color: $card-bg;
+  color: $text-color;
+  border: 1px solid $border-color;
+  padding: 12px 25px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.1em;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+
+  &:hover {
+    background-color: lighten($card-bg, 5%);
+    border-color: $header-color;
+  }
+
+  &.active {
+    background-color: $active-tab-bg;
+    color: $active-tab-text;
+    border-color: $active-tab-bg;
+    font-weight: bold;
+  }
+}
+
+.loading-message,
+.error-message,
+.no-data-message,
+.hint-text {
+  text-align: center;
+  padding: 15px;
+  font-size: 1.1em;
+  color: lighten($text-color, 10%);
+}
+
+.error-message {
+  color: $loss-color;
+}
+
+.market-table-container {
+  overflow-x: auto;
+}
+
+.market-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+
+  th,
+  td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid lighten($border-color, 5%);
+  }
+
+  th {
+    background-color: $card-bg;
+    color: $header-color;
+    font-weight: 600;
+    font-size: 1.1em;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  .sortable-header {
+    cursor: pointer;
+    white-space: nowrap;
+
+    .sort-icon {
+      margin-left: 5px;
+      color: lighten($header-color, 10%);
+    }
+
+    &:hover {
+      background-color: lighten($card-bg, 5%);
+    }
+  }
+
+  td {
+    color: lighten($text-color, 10%);
+
+    &.gain {
+      color: $gain-color;
+      font-weight: 500;
+    }
+
+    &.loss {
+      color: $loss-color;
+      font-weight: 500;
+    }
+  }
+
+  .market-row {
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+
+    &:hover {
+      background-color: rgba($header-color, 0.05);
+      transform: scale(1.005);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .page-title {
+    font-size: 1.8em;
+  }
+
+  .tabs-container {
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+
+  .tab {
+    padding: 10px 18px;
+    font-size: 1em;
+  }
+
+  .market-table {
+
+    th,
+    td {
+      padding: 10px;
+      font-size: 0.9em;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .categories-page-container {
+    padding: 10px;
+  }
+
+  .page-title {
+    font-size: 1.5em;
+  }
+
+  .tabs-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tab {
+    width: 90%;
+    text-align: center;
+  }
+
+  .market-table {
+
+    th,
+    td {
+      padding: 8px;
+      font-size: 0.85em;
+    }
+  }
+}

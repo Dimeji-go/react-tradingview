@@ -1,4 +1,6 @@
-# Trading View Chart integration with Binance API 
+# Trading View Chart integration with Binance API
+
+It leverages the Binance API for fetching comprehensive market statistics, including 24-hour ticker data and exchange information, and integrates the powerful TradingView Charting Library for advanced technical analysis.
 
 This project uses [Binance API](https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md) integrated with [TradingView Charts](https://www.tradingview.com/)
 
@@ -6,18 +8,12 @@ This project uses [Binance API](https://github.com/binance/binance-spot-api-docs
 
 Put **charting_library** folder inside **public/scripts** folder.
 
-`yarn install`
+`npm install`
 
 ## Start
 
-`yarn serve`
+`npm start`
 
 ## Build
 
-`yarn build`
-
-## Deployment on Heroku
-
-Login to heroku using heroku cli and add this repo to your remote heroku account and use the command below to deploy.
-
-`yarn heroku`
+`npm build`
